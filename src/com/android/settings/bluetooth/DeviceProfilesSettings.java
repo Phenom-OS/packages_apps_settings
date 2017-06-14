@@ -324,6 +324,8 @@ public final class DeviceProfilesSettings extends InstrumentedDialogFragment imp
         if (deviceNameField != null) {
             deviceNameField.setText(mCachedDevice.getName());
             com.android.settings.Utils.setEditTextCursorPosition(deviceNameField);
+            int textLength = deviceNameField.getText().length();
+            deviceNameField.setSelection(textLength);
         }
 
         refreshProfiles();

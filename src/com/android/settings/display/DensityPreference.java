@@ -60,6 +60,8 @@ public class DensityPreference extends CustomEditTextPreference {
             editText.setInputType(InputType.TYPE_CLASS_NUMBER);
             editText.setText(getCurrentSwDp() + "");
             Utils.setEditTextCursorPosition(editText);
+            int textLength = editText.getText().length();
+            editText.setSelection(textLength);
         }
     }
 
