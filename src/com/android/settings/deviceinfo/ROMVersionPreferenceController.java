@@ -26,8 +26,8 @@ import com.android.settings.core.PreferenceController;
 
 public class ROMVersionPreferenceController extends PreferenceController {
 
-    private static final String PROPERTY_PHENOM_VERSION = "ro.phenom.version";
-    private static final String KEY_PHENOM_VERSION = "modversion";
+    private static final String PROPERTY_PhenomOS_VERSION = "ro.phenom.version";
+    private static final String KEY_PhenomOS_VERSION = "modversion";
 
     public ROMVersionPreferenceController(Context context) {
         super(context);
@@ -35,20 +35,20 @@ public class ROMVersionPreferenceController extends PreferenceController {
 
     @Override
     public boolean isAvailable() {
-        return !TextUtils.isEmpty(SystemProperties.get(PROPERTY_PHENOM_VERSION));
+        return !TextUtils.isEmpty(SystemProperties.get(PROPERTY_PhenomOS_VERSION));
     }
 
     @Override
     public String getPreferenceKey() {
-        return KEY_PHENOM_VERSION;
+        return KEY_PhenomOS_VERSION;
     }
 
     @Override
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
-        final Preference pref = screen.findPreference(KEY_PHENOM_VERSION);
+        final Preference pref = screen.findPreference(KEY_PhenomOS_VERSION);
         if (pref == null) return;
-        String version = SystemProperties.get(PROPERTY_PHENOM_VERSION);
+        String version = SystemProperties.get(PROPERTY_PhenomOS_VERSION);
         pref.setSummary(version);
     }
 }
